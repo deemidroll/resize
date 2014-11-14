@@ -1,34 +1,182 @@
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/normalize';
 
+@font-face {
+    font-family: 'open_sansbold';
+    src: url('../font/opensans-bold-webfont.eot');
+    src: url('../font/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/opensans-bold-webfont.woff') format('woff'),
+         url('../font/opensans-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'open_sanssemibold';
+    src: url('../font/opensans-semibold-webfont.eot');
+    src: url('../font/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/opensans-semibold-webfont.woff') format('woff'),
+         url('../font/opensans-semibold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('../font/opensans-regular-webfont.eot');
+    src: url('../font/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/opensans-regular-webfont.woff') format('woff'),
+         url('../font/opensans-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$break-large: 960px;
+
+* {
+    // fix bold fonts on mac
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
 .resizedWrap {
     position: relative;
     width: 100%;
-    height: 516px;
+    height: auto;
+    margin-bottom: -25px;
     overflow: hidden;
+    @media screen and (min-width: $break-large) {
+        height: 516px;
+    }
 }
 
 .resized {
-    position: absolute;
-    margin-left: -1611px;
-    left: 84.8%;
+    position: relative;
     top: 0;
-    width: auto;
-    height: 100%;
+    margin-left: 0;
+    left: -83.1%;
+    width: 198%;
+    height: auto;
+    @media screen and (min-width: $break-large) {
+        position: absolute;
+        margin-left: -1611px;
+        left: 84.8%;
+        width: auto;
+        height: 516px;
+    }
 }
 
 .text {
-    position: absolute;
-    left: 45px;
-    top: 47px;
-    width: 416px;
-    height: 416px;
-    border: 4px solid #fff;
-    background-color: red;
-    img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: rgb(0, 0, 0);
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    &:hover {
+        border-color: #fff;
+    }
+    .mobileHidden {
+        display: none;
+    }
+    .mobileShow {
+        display: block;
+    }
+    @media screen and (min-width: $break-large) {
+        position: absolute;
+        left: 45px;
+        top: 47px;
+        width: 416px;
+        height: 416px;
+        border: 4px solid #fff;
+        background-color: rgba(0, 0, 0, .75);
+        &:hover {
+            border-color: #ca3215;
+        }
+        .mobileHidden {
+            display: inline;
+        }
+        .mobileShow {
+            display: none;
+        }
+    }
+    .slider-text-h1, .slider-text-p {
         position: relative;
+        z-index: 1;
+        color: #fff;
+        margin-left: 24px;
+        margin-right: 60px;
+        cursor: pointer;
+    }
+    .slider-text-h1 {
+        margin-top: 64px;
+        text-transform: uppercase;
+        font-family: 'open_sansbold';
+        font-size: 30px;
+        line-height: 36px;
+        @media screen and (min-width: $break-large) {
+            margin-top: 80px;
+        }
+    }
+    .slider-text-p {
+        display: inline-block;
+        margin-top: 0;
+        max-width: 400px;
+        font-family: 'open_sansregular';
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: 150px;
+    }
+    .slider-controls {
+        // background-color: red;
+        width: 100%;
+        height: 13px;
+        position: absolute;
+        z-index: 1;
+        left: 28px;
+        bottom: 34px;
+        padding: 0;
+    }
+    .slider-control {
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 6px;
+        cursor: pointer;
+        transition: all 0.4s ease 0s;
+        &.active {
+            width: 9px;
+            height: 9px;
+            transition: all 0.4s ease 0s;
+        }
+    }
+    img {
+        position: absolute;
+        z-index: 0;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
     }
+}
+
+.watchNews {
+    color: #fff;
+    border: 4px solid #fff;
+    position: absolute;
+    bottom: 70px;
+    left: 24px;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    font-family: 'open_sanssemibold';
+    font-size: 14px;
 }
