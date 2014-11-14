@@ -1,16 +1,32 @@
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/normalize';
 
-* {
-    // fix bold fonts on mac
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.resizedWrap {
+    position: relative;
+    width: 100%;
+    height: 516px;
+    overflow: hidden;
 }
 
-html, body {
-    width: 100%;
+.resized {
+    position: absolute;
+    left: -797px;
+    top: 0;
+    width: auto;
     height: 100%;
 }
 
-.check-gulp-scss-task {
-    color: red;
+.text {
+    position: absolute;
+    left: 45px;
+    top: 47px;
+    width: 416px;
+    height: 416px;
+    border: 4px solid #fff;
+    img {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
